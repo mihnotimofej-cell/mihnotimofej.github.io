@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV · Волейболіст</title>
+<style>
+  :root { --accent:#ff7a1a; --dark:#0f172a; --card:#ffffff; --bg:#f1f5f9; --text:#1e293b; --muted:#64748b; }
+  body[data-node="1"] { --accent:#ff7a1a; }
+  body[data-node="2"] { --accent:#0ea5e9; }
+  body[data-node="3"] { --accent:#10b981; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Segoe UI',Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  .badge { position:fixed; top:14px; right:14px; z-index:10; background:var(--accent); color:#fff;
+           padding:8px 16px; border-radius:999px; font-weight:700; box-shadow:0 4px 14px rgba(0,0,0,.25); }
+  header { min-height:92vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+           text-align:center; color:#fff; padding:40px 20px;
+           background:radial-gradient(circle at 20% 20%, var(--accent) 0, transparent 45%),
+                      linear-gradient(135deg,#0f172a,#1e3a8a); }
+  .ball { font-size:72px; animation:bounce 1.6s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-22px)} }
+  header h1 { font-size:clamp(34px,7vw,64px); margin:10px 0 6px; letter-spacing:1px; }
+  header p { font-size:clamp(16px,2.5vw,22px); opacity:.9; }
+  .btn { display:inline-block; margin-top:26px; padding:12px 30px; border-radius:999px; background:var(--accent);
+         color:#fff; text-decoration:none; font-weight:700; transition:transform .2s; }
+  .btn:hover { transform:scale(1.07); }
+  nav { position:sticky; top:0; background:var(--dark); display:flex; justify-content:center; gap:26px; padding:14px; z-index:5; flex-wrap:wrap; }
+  nav a { color:#cbd5e1; text-decoration:none; font-weight:600; }
+  nav a:hover { color:var(--accent); }
+  section { max-width:980px; margin:0 auto; padding:64px 20px; }
+  h2 { font-size:30px; margin-bottom:24px; position:relative; padding-bottom:10px; }
+  h2::after { content:''; position:absolute; left:0; bottom:0; width:60px; height:4px; background:var(--accent); border-radius:2px; }
+  .card { background:var(--card); border-radius:16px; padding:24px; box-shadow:0 6px 20px rgba(15,23,42,.08); }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px; }
+  .stat { text-align:center; }
+  .stat b { display:block; font-size:32px; color:var(--accent); }
+  .stat span { color:var(--muted); }
+  .skill { margin-bottom:16px; }
+  .bar { height:10px; background:#e2e8f0; border-radius:6px; overflow:hidden; margin-top:6px; }
+  .bar i { display:block; height:100%; background:var(--accent); border-radius:6px; }
+  .timeline { border-left:3px solid var(--accent); padding-left:22px; }
+  .item { margin-bottom:24px; position:relative; }
+  .item::before { content:''; position:absolute; left:-31px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--accent); }
+  .item small { color:var(--accent); font-weight:700; }
+  .contacts { display:flex; gap:16px; flex-wrap:wrap; }
+  .contacts a { flex:1; min-width:220px; text-align:center; padding:14px; border-radius:12px; background:var(--dark);
+                color:#fff; text-decoration:none; font-weight:600; }
+  .contacts a:hover { background:var(--accent); }
+  footer { text-align:center; padding:26px; color:var(--muted); background:#e2e8f0; }
+</style>
+</head>
+<body data-node="1">
+
+<header>
+  <div class="ball">🏐</div>
+  <h1>Тимофій Міхно</h1>
+  <p>Волейболіст · Клуб «Торнадо» · Запорізька область</p>
+  <a class="btn" href="#about">Дізнатися більше</a>
+</header>
+
+<nav>
+  <a href="#about">Про мене</a><a href="#stats">Коротко</a><a href="#skills">Навички</a>
+  <a href="#career">Досягнення</a><a href="#contacts">Контакти</a>
+</nav>
+
+<section id="about">
+  <h2>Про мене</h2>
+  <div class="card">
+    <p>Я граю у волейбол за клуб «Торнадо» із Запорізької області. Люблю командну гру,
+    швидкі атаки та впевнений прийом. Регулярно беру участь в обласних змаганнях
+    і маю на рахунку три других місця. Для мене волейбол це дисципліна, швидка реакція
+    та вміння довіряти партнерам по команді.</p>
+  </div>
+</section>
+
+<section id="stats">
+  <h2>Коротко</h2>
+  <div class="stats">
+    <div class="card stat"><b>3</b><span>других місця</span></div>
+    <div class="card stat"><b>3</b><span>обласні змагання</span></div>
+    <div class="card stat"><b>Торнадо</b><span>мій клуб</span></div>
+    <div class="card stat"><b>Запоріжжя</b><span>область</span></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Навички</h2>
+  <div class="card">
+    <div class="skill">Пас<div class="bar"><i style="width:90%"></i></div></div>
+    <div class="skill">Подача<div class="bar"><i style="width:85%"></i></div></div>
+    <div class="skill">Блок<div class="bar"><i style="width:78%"></i></div></div>
+    <div class="skill">Прийом<div class="bar"><i style="width:82%"></i></div></div>
+    <div class="skill">Командна гра<div class="bar"><i style="width:95%"></i></div></div>
+  </div>
+</section>
+
+<section id="career">
+  <h2>Досягнення</h2>
+  <div class="timeline">
+    <div class="item card"><small>🥈 2 місце</small><h3>Обласні змагання №1</h3><p>Запорізька область, у складі клубу «Торнадо».</p></div>
+    <div class="item card"><small>🥈 2 місце</small><h3>Обласні змагання №2</h3><p>Запорізька область, у складі клубу «Торнадо».</p></div>
+    <div class="item card"><small>🥈 2 місце</small><h3>Обласні змагання №3</h3><p>Запорізька область, у складі клубу «Торнадо».</p></div>
+  </div>
+</section>
+
+<section id="contacts">
+  <h2>Контакти</h2>
+  <div class="contacts">
+    <a href="tel:+380995599900">📱 +380 99 559 99 00</a>
+    <a href="mailto:Torn4d0@gmail.com">✉ Torn4d0@gmail.com</a>
+  </div>
+</section>
+
+<footer>© 2026 Тимофій Міхно</footer>
+</body>
+</html>
