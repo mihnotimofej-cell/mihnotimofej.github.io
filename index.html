@@ -47,6 +47,11 @@
   .contacts a { flex:1; min-width:220px; text-align:center; padding:14px; border-radius:12px; background:var(--dark);
                 color:#fff; text-decoration:none; font-weight:600; }
   .contacts a:hover { background:var(--accent); }
+  .timer { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; text-align:center; }
+  .timer div { background:var(--dark); color:#fff; border-radius:14px; padding:18px 6px; }
+  .timer b { display:block; font-size:clamp(28px,6vw,48px); color:var(--accent); font-variant-numeric:tabular-nums; }
+  .timer span { color:#cbd5e1; font-size:14px; }
+  .timer-note { margin-top:14px; text-align:center; color:var(--muted); }
   footer { text-align:center; padding:26px; color:var(--muted); background:#e2e8f0; }
 </style>
 </head>
@@ -61,7 +66,7 @@
 
 <nav>
   <a href="#about">Про мене</a><a href="#stats">Коротко</a><a href="#skills">Навички</a>
-  <a href="#career">Досягнення</a><a href="#contacts">Контакти</a>
+  <a href="#career">Досягнення</a><a href="#newyear">Новий рік</a><a href="#contacts">Контакти</a>
 </nav>
 
 <section id="about">
@@ -104,6 +109,19 @@
   </div>
 </section>
 
+<section id="newyear">
+  <h2>До Нового року</h2>
+  <div class="card">
+    <div class="timer" aria-live="polite">
+      <div><b id="t-days">0</b><span>днів</span></div>
+      <div><b id="t-hours">00</b><span>годин</span></div>
+      <div><b id="t-min">00</b><span>хвилин</span></div>
+      <div><b id="t-sec">00</b><span>секунд</span></div>
+    </div>
+    <p class="timer-note" id="t-note">🎄 Залишилось до 1 січня</p>
+  </div>
+</section>
+
 <section id="contacts">
   <h2>Контакти</h2>
   <div class="contacts">
@@ -113,5 +131,25 @@
 </section>
 
 <footer>© 2026 Тимофій Міхно</footer>
+<script>
+  (function () {
+    var el = { d: document.getElementById('t-days'), h: document.getElementById('t-hours'),
+               m: document.getElementById('t-min'), s: document.getElementById('t-sec'),
+               n: document.getElementById('t-note') };
+    var pad = function (v) { return String(v).padStart(2, '0'); };
+    function tick() {
+      var now = new Date();
+      var target = new Date(now.getFullYear() + 1, 0, 1);
+      var diff = Math.max(0, Math.floor((target - now) / 1000));
+      el.d.textContent = Math.floor(diff / 86400);
+      el.h.textContent = pad(Math.floor(diff % 86400 / 3600));
+      el.m.textContent = pad(Math.floor(diff % 3600 / 60));
+      el.s.textContent = pad(diff % 60);
+      el.n.textContent = '🎄 Залишилось до 1 січня ' + target.getFullYear() + ' року';
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
 </body>
 </html>
